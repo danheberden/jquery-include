@@ -1,0 +1,25 @@
+<script>
+  (function(){
+    // Look for a jqversion query parameter and grab any following version.
+    // Limit to digits and letters to prevent any XSS attempts
+    var verMatch = /jqversion=([\d\w\.]+)/.exec( location.search ),
+        // our matched version, e.g., 1.6.4 or 1.7rc1
+        version = verMatch && verMatch[1],
+        src;
+    if ( version ) {
+      // version was specified, use jQuery's CDN to acccess non-mininfied betas and RCs
+      src = 'code.jquery.com/jquery-' + version;
+    } else {
+      // nothing was specified, use the Google CDN (or jQuery's or Microsoft's) with a minified copy
+      src = 'ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min';
+    }
+    // create the script tag
+    document.write( '<script src="//' + src + '.js"><\/script>' );
+  })();
+</script>
+<script>
+  // Use a local copy, incase the above didn't load
+  if ( !window.jQuery ) {
+    document.write( '<script src="/scripts/jquery-1.7.0.min.js"><\/script>' );
+  }
+</script>
