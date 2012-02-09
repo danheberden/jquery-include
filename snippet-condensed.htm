@@ -1,6 +1,6 @@
 <script>
   (function(){
-    var verMatch = /jqversion=([\d\w\.]+)/.exec( location.search ),
+    var verMatch = /jqversion=([\w\.]+)/.exec( location.search ),
         version = verMatch && verMatch[1],
         src = version ? 'code.jquery.com/jquery-' + version :
              'ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min';

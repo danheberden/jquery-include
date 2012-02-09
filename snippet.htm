@@ -2,7 +2,7 @@
   (function(){
     // Look for a jqversion query parameter and grab any following version.
     // Limit to digits and letters to prevent any XSS attempts
-    var verMatch = /jqversion=([\d\w\.]+)/.exec( location.search ),
+    var verMatch = /jqversion=([\w\.]+)/.exec( location.search ),
         // our matched version, e.g., 1.6.4 or 1.7rc1
         version = verMatch && verMatch[1],
         src;
